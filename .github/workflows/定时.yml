@@ -1,0 +1,18 @@
+name: 定时跑代码
+on:
+  schedule:
+    - cron: "0 12 * * *"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 跑脚本
+        run: python main.py
