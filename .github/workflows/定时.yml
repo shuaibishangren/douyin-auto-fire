@@ -9,7 +9,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6  # 升级到支持 Node 24 的版本
+      - uses: actions/checkout@v6  # 升级了版本
       - name: 装 Python
         uses: actions/setup-python@v5
         with:
@@ -17,6 +17,6 @@ jobs:
       - name: 装依赖
         run: |
           pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
       - name: 跑脚本
-        run: python main.py  # ⚠️ 确认你的脚本真的叫 main.py，不是就改掉！
+        run: python run.py
